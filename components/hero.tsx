@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { ArrowDownToLine, Sparkles } from 'lucide-react'
+import { ArrowDownToLine } from 'lucide-react'
 import { DotGrid } from '@/components/dot-grid'
 import { StatCounter } from '@/components/stat-counter'
 import { useScrollTo } from '@/components/lenis-provider'
@@ -29,33 +29,33 @@ export function Hero() {
         {/* Left column */}
         <motion.div variants={container} initial="hidden" animate="show" className="flex flex-col gap-6">
           <motion.p variants={item} className="text-sm font-medium tracking-widest text-accent uppercase">
-            Full-Stack Developer → ML Engineer
+            AI engineer
           </motion.p>
 
           <motion.h1
             variants={item}
             className="font-display text-5xl font-extrabold leading-[1.05] tracking-tight text-balance md:text-7xl"
           >
-            {'[YOUR NAME]'}
+            Uzair Attiq
           </motion.h1>
 
           <motion.p variants={item} className="text-lg text-muted-foreground text-pretty md:text-xl">
-            MERN developer transitioning into <span className="text-accent">machine learning and AI</span>,
-            based in Islamabad, Pakistan.
+            AI engineer based in Islamabad, Pakistan.
           </motion.p>
 
           <motion.p variants={item} className="max-w-xl leading-relaxed text-muted-foreground text-pretty">
-            I spent the last few years building production web applications across the MERN stack — React
-            frontends, Node/Express APIs, and MongoDB data layers. Today my focus is on ML and deep learning
-            fundamentals: math, models, and the engineering that makes them useful. I&apos;m aiming for roles
-            where solid software craft meets applied machine learning.
+            I build AI systems: LLM agents, RAG pipelines, and neural networks.
+            <br />
+            AI degree, plus Stanford and DeepLearning.AI Machine Learning and Deep Learning specializations.
+            <br />
+            MERN roots, AI focus.
           </motion.p>
 
           {/* Stat counters */}
           <motion.div variants={item} className="flex flex-wrap gap-10 pt-2">
             <StatCounter value={12} label="Projects Completed" />
-            <StatCounter value={6} label="Certificates Earned" />
-            <StatCounter value={3} label="Years Building Software" />
+            <StatCounter value={5} suffix="" label="Certifications" />
+            <StatCounter value={4} label="Years Building Software" />
           </motion.div>
 
           {/* CTAs */}
@@ -94,23 +94,12 @@ export function Hero() {
             <div className="relative overflow-hidden rounded-[2.5rem] rounded-tr-lg rounded-bl-lg border border-border">
               <Image
                 src="/images/portrait-placeholder.png"
-                alt="Portrait of [YOUR NAME]"
+                alt="Portrait of Uzair Attiq"
                 width={380}
                 height={475}
                 priority
                 className="h-auto w-72 object-cover md:w-80"
               />
-            </div>
-          </div>
-
-          {/* Currently learning mini-card */}
-          <div className="flex w-72 items-center gap-3 rounded-2xl border border-border bg-card p-4 transition-all hover:-translate-y-0.5 hover:border-accent/40 md:w-80">
-            <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-accent/10 text-accent">
-              <Sparkles className="size-4" aria-hidden="true" />
-            </span>
-            <div className="flex flex-col">
-              <span className="text-xs tracking-wide text-muted-foreground uppercase">Currently learning</span>
-              <span className="text-sm font-medium">Deep learning with PyTorch</span>
             </div>
           </div>
         </motion.div>
