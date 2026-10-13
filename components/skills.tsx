@@ -1,46 +1,68 @@
 'use client'
 
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { GraduationCap, Plus, Minus } from 'lucide-react'
+import { motion } from 'framer-motion'
 
 type Skill = { name: string; level: 1 | 2 | 3 }
 
 const CATEGORIES: { title: string; skills: Skill[] }[] = [
   {
-    title: 'Languages',
+    title: 'AI & LLM',
     skills: [
-      { name: 'JavaScript', level: 3 },
+      { name: 'LangChain (LCEL)', level: 3 },
+      { name: 'LangGraph', level: 3 },
+      { name: 'MCP', level: 3 },
+      { name: 'RAG', level: 3 },
+      { name: 'Agentic AI / Tool Calling', level: 3 },
+      { name: 'Vector Databases & Embeddings', level: 3 },
+      { name: 'Cross-Encoder Reranking', level: 3 },
+      { name: 'LLM Evaluation', level: 3 },
+      { name: 'Langfuse', level: 3 },
+      { name: 'OpenAI API', level: 3 },
+      { name: 'Groq API', level: 3 },
+      { name: 'Gemini Vision API', level: 3 },
+    ],
+  },
+  {
+    title: 'Machine Learning',
+    skills: [
+      { name: 'TensorFlow', level: 3 },
+      { name: 'Keras', level: 3 },
+      { name: 'Scikit-Learn', level: 3 },
+      { name: 'NumPy', level: 3 },
+      { name: 'Pandas', level: 3 },
+      { name: 'Neural Networks (CNN, RNN, LSTM, Transformers)', level: 3 },
+    ],
+  },
+  {
+    title: 'Backend & Frontend',
+    skills: [
+      { name: 'Python', level: 3 },
       { name: 'TypeScript', level: 3 },
-      { name: 'Python', level: 2 },
-      { name: 'SQL', level: 2 },
-    ],
-  },
-  {
-    title: 'Frameworks & Libraries',
-    skills: [
-      { name: 'React', level: 3 },
-      { name: 'Next.js', level: 3 },
-      { name: 'Node.js / Express', level: 3 },
+      { name: 'JavaScript', level: 3 },
+      { name: 'FastAPI', level: 3 },
+      { name: 'Node.js', level: 3 },
+      { name: 'Express.js', level: 3 },
+      { name: 'React.js', level: 3 },
       { name: 'Tailwind CSS', level: 3 },
-    ],
-  },
-  {
-    title: 'ML & Data',
-    skills: [
-      { name: 'NumPy / Pandas', level: 2 },
-      { name: 'scikit-learn', level: 2 },
-      { name: 'PyTorch', level: 1 },
-      { name: 'Data Visualization', level: 2 },
-    ],
-  },
-  {
-    title: 'Tools',
-    skills: [
-      { name: 'Git / GitHub', level: 3 },
+      { name: 'REST APIs', level: 3 },
+      { name: 'PostgreSQL', level: 3 },
       { name: 'MongoDB', level: 3 },
-      { name: 'Docker', level: 2 },
-      { name: 'Vercel / CI', level: 2 },
+      { name: 'SQLite', level: 3 },
+    ],
+  },
+  {
+    title: 'Cloud & Tools',
+    skills: [
+      { name: 'AWS (EC2, S3, CloudFront)', level: 3 },
+      { name: 'Render', level: 3 },
+      { name: 'Vercel', level: 3 },
+      { name: 'Docker', level: 3 },
+      { name: 'Nginx', level: 3 },
+      { name: 'Qdrant', level: 3 },
+      { name: 'Supabase', level: 3 },
+      { name: 'OAuth 2.0', level: 3 },
+      { name: 'Git', level: 3 },
+      { name: 'GitHub', level: 3 },
     ],
   },
 ]
@@ -63,24 +85,7 @@ function ProficiencyDots({ level }: { level: number }) {
   )
 }
 
-const EDUCATION = [
-  {
-    degree: '[DEGREE — e.g. BS Computer Science]',
-    institution: '[University Name]',
-    dates: '[Start] – [End]',
-    coursework: '[Relevant coursework placeholder — e.g. Data Structures, Linear Algebra, Probability, Databases. Replace with real content.]',
-  },
-  {
-    degree: '[CERTIFICATION / PROGRAM — e.g. ML Specialization]',
-    institution: '[Provider Name]',
-    dates: '[Start] – [End]',
-    coursework: '[Relevant coursework placeholder — e.g. Supervised Learning, Neural Networks, Model Evaluation. Replace with real content.]',
-  },
-]
-
 export function Skills() {
-  const [expanded, setExpanded] = useState<number | null>(null)
-
   return (
     <section id="skills" className="mx-auto max-w-6xl px-6 py-24">
       <motion.div
@@ -92,7 +97,7 @@ export function Skills() {
       >
         <p className="mb-2 text-sm font-medium tracking-widest text-accent uppercase">What I work with</p>
         <h2 className="font-display text-4xl font-bold tracking-tight md:text-5xl">
-          Skills <span className="text-accent">&amp;</span> Education
+          Technical Skills
         </h2>
       </motion.div>
 
@@ -122,59 +127,6 @@ export function Skills() {
               ))}
             </ul>
           </motion.div>
-        ))}
-      </div>
-
-      {/* Education cards */}
-      <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
-        {EDUCATION.map((edu, i) => (
-          <motion.article
-            key={edu.degree}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="group rounded-2xl border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:border-accent/40 hover:shadow-[0_8px_40px_rgba(0,0,0,0.4)]"
-          >
-            <div className="flex items-start justify-between gap-4">
-              <div className="flex items-center gap-3">
-                <span className="flex size-11 items-center justify-center rounded-xl bg-accent/10 text-accent">
-                  <GraduationCap className="size-5" aria-hidden="true" />
-                </span>
-                <div>
-                  <h3 className="font-display text-base font-semibold leading-tight">{edu.degree}</h3>
-                  <p className="text-sm text-muted-foreground">
-                    {edu.institution} · {edu.dates}
-                  </p>
-                </div>
-              </div>
-              <button
-                onClick={() => setExpanded(expanded === i ? null : i)}
-                aria-expanded={expanded === i}
-                aria-label={expanded === i ? 'Hide coursework' : 'Show coursework'}
-                className="flex size-8 shrink-0 items-center justify-center rounded-full border border-border text-muted-foreground transition-all hover:border-accent hover:text-accent"
-              >
-                {expanded === i ? (
-                  <Minus className="size-4" aria-hidden="true" />
-                ) : (
-                  <Plus className="size-4" aria-hidden="true" />
-                )}
-              </button>
-            </div>
-            <AnimatePresence initial={false}>
-              {expanded === i && (
-                <motion.p
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
-                  exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="overflow-hidden pt-4 leading-relaxed text-sm text-muted-foreground"
-                >
-                  {edu.coursework}
-                </motion.p>
-              )}
-            </AnimatePresence>
-          </motion.article>
         ))}
       </div>
     </section>
