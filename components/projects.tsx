@@ -37,8 +37,9 @@ const PROJECTS: Project[] = [
     ],
   },
   {
-    title: 'Fitness Knowledge Assistant: Domain-Specific RAG Pipeline',
-    screenshotLabel: 'RAG PIPELINE & VECTOR RETRIEVAL',
+    title: 'Fitness Bot',
+    subtitle: 'Fitness Knowledge Assistant: Domain-Specific RAG Pipeline',
+    image: '/project ss/github.gif',
     description:
       'A production-ready fitness RAG pipeline featuring custom markdown cleaning, multi-level header chunking, and rich metadata tagging. It combines Qdrant Cloud vector search with cross-encoder reranking to deliver pinpoint domain context for high-accuracy answers. Powered by Groq and LangChain LCEL via an async FastAPI backend and a live React frontend deployed on AWS.',
     tags: [
@@ -53,7 +54,8 @@ const PROJECTS: Project[] = [
     ],
   },
   {
-    title: 'Anime Tracker: Retro-Styled Watchlist Manager',
+    title: 'Anime Tracker',
+    subtitle: 'Retro-Styled Watchlist Manager',
     screenshotLabel: 'RETRO WATCHLIST DASHBOARD',
     description:
       'A retro-themed anime tracking web app that organizes watched, completed, and in-progress titles with fluid Framer Motion animations. Features real-time cloud data synchronization powered by Supabase alongside an offline-first local fallback so the watchlist never loses state.',
@@ -68,7 +70,8 @@ const PROJECTS: Project[] = [
     ],
   },
   {
-    title: 'Workout Logger: Mobile-First Fitness Tracker',
+    title: 'Workout Logger',
+    subtitle: 'Mobile-First Fitness Tracker',
     screenshotLabel: 'MOBILE WORKOUT LOGGER',
     description:
       'A mobile-first workout logger tailored for rapid exercise logging with intuitive gesture-based digit inputs and historical volume tracking. Engineered with React and TypeScript, running completely offline and packaged directly into an Android APK with Capacitor.',
