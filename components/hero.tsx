@@ -93,7 +93,7 @@ export function Hero() {
             />
             <div className="relative overflow-hidden rounded-[2.5rem] rounded-tr-lg rounded-bl-lg border border-border">
               <Image
-                src="/images/portrait-placeholder.png"
+                src="/pfp/ChatGPT Image Aug 15, 2026, 03_45_22 AM.png"
                 alt="Portrait of Uzair Attiq"
                 width={380}
                 height={475}
