@@ -1,12 +1,15 @@
 'use client'
 
+import Image from 'next/image'
 import { useRef } from 'react'
 import { motion, useScroll, useSpring, useTransform, useInView } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
 
 type Project = {
   title: string
-  screenshotLabel: string
+  subtitle?: string
+  screenshotLabel?: string
+  image?: string
   description: string
   tags: string[]
   research?: boolean
@@ -14,8 +17,9 @@ type Project = {
 
 const PROJECTS: Project[] = [
   {
-    title: 'Autonomous LinkedIn AI Publishing Agent (Human-in-the-Loop)',
-    screenshotLabel: 'LINKEDIN AGENT & MCP ARCHITECTURE',
+    title: 'Post Studio',
+    subtitle: 'Autonomous LinkedIn AI Publishing Agent (Human-in-the-Loop)',
+    image: '/project ss/post studio compressed.gif',
     description:
       'An end-to-end agentic publishing pipeline built with LangGraph and Groq LLMs that drafts content, routes it to Slack for human review, and publishes approved posts to LinkedIn. Modular tools run as independent MCP servers over stdio, paired with automated OAuth 2.0 token refreshes and dual PostgreSQL/SQLite state synchronization. Monitored with Langfuse for observability and deployed on Render with an interactive React workflow dashboard.',
     tags: [
@@ -117,11 +121,21 @@ function Checkpoint({ project, index }: { project: Project; index: number }) {
         transition={{ duration: 0.6, delay: 0.1 }}
         className="group mb-24 flex-1 overflow-hidden rounded-2xl border border-border bg-card transition-all hover:-translate-y-1 hover:border-accent/40 hover:shadow-[0_12px_50px_rgba(0,0,0,0.5)]"
       >
-        {/* Screenshot placeholder */}
+        {/* Screenshot / GIF */}
         <div className="relative flex aspect-[16/9] items-center justify-center overflow-hidden border-b border-border bg-secondary">
-          <span className="font-mono text-sm text-muted-foreground transition-transform duration-500 group-hover:scale-105">
-            {project.screenshotLabel}
-          </span>
+          {project.image ? (
+            <Image
+              src={project.image}
+              alt={project.title}
+              fill
+              unoptimized
+              className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+            />
+          ) : (
+            <span className="font-mono text-sm text-muted-foreground transition-transform duration-500 group-hover:scale-105">
+              {project.screenshotLabel}
+            </span>
+          )}
           {/* Hover gradient overlay */}
           <div
             className="absolute inset-0 bg-gradient-to-t from-accent/15 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
@@ -150,7 +164,14 @@ function Checkpoint({ project, index }: { project: Project; index: number }) {
 
         <div className="flex flex-col gap-4 p-6">
           <div className="flex items-start justify-between gap-3">
-            <h3 className="font-display text-xl font-bold">{project.title}</h3>
+            <div className="flex flex-col gap-1">
+              <h3 className="font-display text-2xl font-bold">{project.title}</h3>
+              {project.subtitle && (
+                <p className="text-sm font-medium text-accent">
+                  {project.subtitle}
+                </p>
+              )}
+            </div>
             <span className="font-display text-sm font-bold text-accent/60">
               {String(index + 1).padStart(2, '0')}
             </span>
