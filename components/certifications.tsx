@@ -19,6 +19,13 @@ const CERTIFICATIONS: Certification[] = [
     credentialUrl: 'https://coursera.org/verify/specialization/1770IW814UQV',
     fileUrl: '/Certificates/ML Specialization Certificates_compressed.pdf',
   },
+  {
+    title: 'Deep Learning Specialization',
+    issuer: 'DeepLearning.AI',
+    date: 'Aug 2026',
+    credentialUrl: 'https://coursera.org/verify/specialization/YSA3H4NXFL18',
+    fileUrl: '/Certificates/Deep_Learning_Specialization_Certificates_compressed.pdf',
+  },
 ]
 
 export function Certifications() {
