@@ -38,6 +38,11 @@ const CERTIFICATIONS: Certification[] = [
     issuer: 'Anthropic',
     fileUrl: '/Certificates/certificate-syawdmwcfubs-1776649795.pdf',
   },
+  {
+    title: 'Hack Your Stack Workshop',
+    issuer: 'Bahria University / YOTA',
+    fileUrl: '/Certificates/WhatsApp Image 2026-04-22 at 12.51.41.jpeg',
+  },
 ]
 
 export function Certifications() {
