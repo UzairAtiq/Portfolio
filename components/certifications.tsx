@@ -1,18 +1,25 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Award } from 'lucide-react'
+import { Award, ArrowUpRight, FileText } from 'lucide-react'
 
 export type Certification = {
   title: string
   issuer: string
   date?: string
   credentialUrl?: string
-  description?: string
+  fileUrl?: string
 }
 
-// Will be populated once certifications are provided
-const CERTIFICATIONS: Certification[] = []
+const CERTIFICATIONS: Certification[] = [
+  {
+    title: 'Machine Learning Specialization',
+    issuer: 'Stanford University & DeepLearning.AI',
+    date: 'Jul 2026',
+    credentialUrl: 'https://coursera.org/verify/specialization/1770IW814UQV',
+    fileUrl: '/Certificates/ML Specialization Certificates_compressed.pdf',
+  },
+]
 
 export function Certifications() {
   return (
@@ -47,10 +54,33 @@ export function Certifications() {
                 <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent">
                   <Award className="size-5" aria-hidden="true" />
                 </span>
-                <div>
+                <div className="flex flex-1 flex-col">
                   <h3 className="font-display text-base font-semibold leading-tight">{cert.title}</h3>
                   <p className="text-sm text-muted-foreground">{cert.issuer}</p>
                   {cert.date && <p className="mt-1 text-xs text-muted-foreground">{cert.date}</p>}
+
+                  <div className="mt-4 flex flex-wrap items-center gap-3">
+                    {cert.credentialUrl && (
+                      <a
+                        href={cert.credentialUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-xs font-medium text-accent transition-all hover:gap-1.5"
+                      >
+                        Verify credential <ArrowUpRight className="size-3.5" aria-hidden="true" />
+                      </a>
+                    )}
+                    {cert.fileUrl && (
+                      <a
+                        href={cert.fileUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
+                      >
+                        <FileText className="size-3.5" aria-hidden="true" /> View document
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             </motion.article>
