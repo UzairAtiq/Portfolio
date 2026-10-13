@@ -33,6 +33,11 @@ const CERTIFICATIONS: Certification[] = [
     credentialUrl: 'https://codeinplace.stanford.edu/cip6/certificate/utcweu',
     fileUrl: '/Certificates/Certificate Progress - Code in Place 2026_compressed.pdf',
   },
+  {
+    title: 'Claude Code 101',
+    issuer: 'Anthropic',
+    fileUrl: '/Certificates/certificate-syawdmwcfubs-1776649795.pdf',
+  },
 ]
 
 export function Certifications() {
