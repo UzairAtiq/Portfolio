@@ -14,34 +14,68 @@ type Project = {
 
 const PROJECTS: Project[] = [
   {
-    title: '[PROJECT 1 — Title]',
-    screenshotLabel: '[PROJECT SCREENSHOT: Project 1]',
+    title: 'Autonomous LinkedIn AI Publishing Agent (Human-in-the-Loop)',
+    screenshotLabel: 'LINKEDIN AGENT & MCP ARCHITECTURE',
     description:
-      '[Short description placeholder — what it does, who it is for, and what you built. Replace with real content.]',
-    tags: ['React', 'Node.js', 'MongoDB', 'Express'],
+      'An end-to-end agentic publishing pipeline built with LangGraph and Groq LLMs that drafts content, routes it to Slack for human review, and publishes approved posts to LinkedIn. Modular tools run as independent MCP servers over stdio, paired with automated OAuth 2.0 token refreshes and dual PostgreSQL/SQLite state synchronization. Monitored with Langfuse for observability and deployed on Render with an interactive React workflow dashboard.',
+    tags: [
+      'Python',
+      'LangGraph',
+      'MCP',
+      'Groq API',
+      'FastAPI',
+      'PostgreSQL',
+      'SQLite',
+      'Slack API',
+      'LinkedIn REST API',
+      'Langfuse',
+      'Render',
+    ],
   },
   {
-    title: '[PROJECT 2 — Title]',
-    screenshotLabel: '[PROJECT SCREENSHOT: Project 2]',
+    title: 'Fitness Knowledge Assistant: Domain-Specific RAG Pipeline',
+    screenshotLabel: 'RAG PIPELINE & VECTOR RETRIEVAL',
     description:
-      '[Short description placeholder — what it does, who it is for, and what you built. Replace with real content.]',
-    tags: ['Next.js', 'TypeScript', 'PostgreSQL'],
+      'A production-ready fitness RAG pipeline featuring custom markdown cleaning, multi-level header chunking, and rich metadata tagging. It combines Qdrant Cloud vector search with cross-encoder reranking to deliver pinpoint domain context for high-accuracy answers. Powered by Groq and LangChain LCEL via an async FastAPI backend and a live React frontend deployed on AWS.',
+    tags: [
+      'Python',
+      'FastAPI',
+      'Qdrant Cloud',
+      'LangChain (LCEL)',
+      'Sentence-Transformers',
+      'Cross-Encoders',
+      'Groq',
+      'Docker',
+    ],
   },
   {
-    title: '[PROJECT 3 — Title]',
-    screenshotLabel: '[PROJECT SCREENSHOT: Project 3]',
+    title: 'Anime Tracker: Retro-Styled Watchlist Manager',
+    screenshotLabel: 'RETRO WATCHLIST DASHBOARD',
     description:
-      '[Short description placeholder — an ML/learning-focused project. Replace with real content.]',
-    tags: ['Python', 'PyTorch', 'NumPy'],
-    research: true,
+      'A retro-themed anime tracking web app that organizes watched, completed, and in-progress titles with fluid Framer Motion animations. Features real-time cloud data synchronization powered by Supabase alongside an offline-first local fallback so the watchlist never loses state.',
+    tags: [
+      'React',
+      'JavaScript',
+      'Vite',
+      'Tailwind CSS',
+      'Framer Motion',
+      'Supabase',
+      'Capacitor',
+    ],
   },
   {
-    title: '[PROJECT 4 — Title]',
-    screenshotLabel: '[PROJECT SCREENSHOT: Project 4]',
+    title: 'Workout Logger: Mobile-First Fitness Tracker',
+    screenshotLabel: 'MOBILE WORKOUT LOGGER',
     description:
-      '[Short description placeholder — what it does, who it is for, and what you built. Replace with real content.]',
-    tags: ['React', 'FastAPI', 'scikit-learn'],
-    research: true,
+      'A mobile-first workout logger tailored for rapid exercise logging with intuitive gesture-based digit inputs and historical volume tracking. Engineered with React and TypeScript, running completely offline and packaged directly into an Android APK with Capacitor.',
+    tags: [
+      'React',
+      'TypeScript',
+      'Vite',
+      'Tailwind CSS',
+      'Capacitor',
+      'Android (Gradle)',
+    ],
   },
 ]
 
