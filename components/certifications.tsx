@@ -26,6 +26,13 @@ const CERTIFICATIONS: Certification[] = [
     credentialUrl: 'https://coursera.org/verify/specialization/YSA3H4NXFL18',
     fileUrl: '/Certificates/Deep_Learning_Specialization_Certificates_compressed.pdf',
   },
+  {
+    title: "Stanford University's Code in Place",
+    issuer: 'Stanford University',
+    date: 'May 2026',
+    credentialUrl: 'https://codeinplace.stanford.edu/cip6/certificate/utcweu',
+    fileUrl: '/Certificates/Certificate Progress - Code in Place 2026_compressed.pdf',
+  },
 ]
 
 export function Certifications() {
