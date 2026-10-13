@@ -61,7 +61,8 @@ export function Hero() {
           {/* CTAs */}
           <motion.div variants={item} className="flex flex-wrap gap-4 pt-2">
             <a
-              href="/resume.pdf"
+              href="/resume/Muhammad_Uzair_Attiq_Resume (1) copy.pdf"
+              download="Muhammad_Uzair_Attiq_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground transition-all hover:-translate-y-0.5 hover:shadow-[0_0_28px_var(--glow)]"
