@@ -21,21 +21,53 @@ function LinkedinIcon({ className }: { className?: string }) {
 }
 
 const SOCIALS = [
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/your-handle', icon: LinkedinIcon },
-  { label: 'GitHub', href: 'https://github.com/your-handle', icon: GithubIcon },
-  { label: 'Email', href: 'mailto:you@example.com', icon: Mail },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/uzair-attiq1', icon: LinkedinIcon },
+  { label: 'GitHub', href: 'https://github.com/UzairAtiq', icon: GithubIcon },
+  { label: 'Email', href: 'mailto:uzairatiq65@gmail.com', icon: Mail },
 ]
 
 export function Contact() {
-  const [status, setStatus] = useState<'idle' | 'sending' | 'sent'>('idle')
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    if (status !== 'idle') return
+    if (status === 'sending') return
     setStatus('sending')
-    // Placeholder submit — wire up a real endpoint or email service later.
-    setTimeout(() => setStatus('sent'), 1200)
-    setTimeout(() => setStatus('idle'), 4000)
+    setErrorMessage('')
+
+    const form = e.currentTarget
+    const formData = new FormData(form)
+    const payload = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      message: formData.get('message'),
+      _subject: `New portfolio message from ${formData.get('name')}`,
+      _captcha: 'false',
+    }
+
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/uzairatiq65@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(payload),
+      })
+
+      if (!res.ok) {
+        throw new Error('Failed to send message')
+      }
+
+      setStatus('sent')
+      form.reset()
+      setTimeout(() => setStatus('idle'), 5000)
+    } catch {
+      setStatus('error')
+      setErrorMessage('Could not send message. Please email directly at uzairatiq65@gmail.com')
+      setTimeout(() => setStatus('idle'), 6000)
+    }
   }
 
   return (
@@ -67,8 +99,7 @@ export function Contact() {
           {/* Pull-quote */}
           <blockquote className="border-l-2 border-accent pl-5">
             <p className="font-display text-lg font-medium leading-relaxed text-foreground/90 text-pretty">
-              &ldquo;[YOUR PERSONAL QUOTE — one line about how you think about software, learning, or
-              building. Replace with your own words.]&rdquo;
+              &ldquo;The best systems aren’t finished at launch. They get better every time someone uses them.&rdquo;
             </p>
           </blockquote>
 
@@ -180,8 +211,22 @@ export function Contact() {
                   <Check className="size-4" aria-hidden="true" /> Sent!
                 </motion.span>
               )}
+              {status === 'error' && (
+                <motion.span
+                  key="error"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="inline-flex items-center gap-2"
+                >
+                  Failed to send
+                </motion.span>
+              )}
             </AnimatePresence>
           </motion.button>
+          {errorMessage && (
+            <p className="text-xs text-destructive">{errorMessage}</p>
+          )}
         </motion.form>
       </div>
 
@@ -189,7 +234,7 @@ export function Contact() {
       <footer className="relative border-t border-border">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-6 py-6 text-sm text-muted-foreground sm:flex-row">
           <p>
-            Designed and built by <span className="text-foreground">{'[YOUR NAME]'}</span>
+            Designed and built by <span className="text-foreground">Uzair Attiq</span>
           </p>
           <p>
             <span className="text-accent">·</span> Islamabad, Pakistan
