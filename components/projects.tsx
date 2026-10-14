@@ -86,7 +86,7 @@ const PROJECTS: Project[] = [
   {
     title: 'Workout Logger',
     subtitle: 'Mobile-First Fitness Tracker',
-    screenshotLabel: 'MOBILE WORKOUT LOGGER',
+    image: '/project ss/Screenshot 2026-10-14 at 10.36.28 PM.png',
     repoUrl: 'https://github.com/UzairAtiq/workout-logger',
     description:
       'A mobile-first workout logger tailored for rapid exercise logging with intuitive gesture-based digit inputs and historical volume tracking. Engineered with React and TypeScript, running completely offline and packaged directly into an Android APK with Capacitor.',
