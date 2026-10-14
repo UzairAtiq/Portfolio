@@ -97,7 +97,7 @@ export function Hero() {
                 src="/pfp/ChatGPT Image Aug 15, 2026, 03_45_22 AM.png"
                 alt="Portrait of Uzair Attiq"
                 fill
-                priority
+                loading="eager"
                 sizes="(max-width: 768px) 288px, (max-width: 1024px) 320px, 352px"
                 className="object-cover object-[center_18%] scale-110 transition-transform duration-500 hover:scale-115"
               />
