@@ -89,17 +89,17 @@ export function Hero() {
           <div className="relative">
             {/* Ambient glow behind the portrait */}
             <div
-              className="absolute -inset-6 rounded-[2.5rem] bg-accent/15 blur-3xl"
+              className="absolute -inset-4 rounded-full bg-accent/20 blur-3xl"
               aria-hidden="true"
             />
-            <div className="relative overflow-hidden rounded-[2.5rem] rounded-tr-lg rounded-bl-lg border border-border">
+            <div className="relative size-72 overflow-hidden rounded-full border-2 border-border shadow-2xl transition-all hover:border-accent/50 md:size-80 lg:size-88">
               <Image
                 src="/pfp/ChatGPT Image Aug 15, 2026, 03_45_22 AM.png"
                 alt="Portrait of Uzair Attiq"
-                width={380}
-                height={475}
+                fill
                 priority
-                className="h-auto w-72 object-cover md:w-80"
+                sizes="(max-width: 768px) 288px, (max-width: 1024px) 320px, 352px"
+                className="object-cover object-[center_18%] scale-110 transition-transform duration-500 hover:scale-115"
               />
             </div>
           </div>
