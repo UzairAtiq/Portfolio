@@ -69,8 +69,8 @@ const PROJECTS: Project[] = [
   {
     title: 'Anime Tracker',
     subtitle: 'Retro-Styled Watchlist Manager',
-    screenshotLabel: 'RETRO WATCHLIST DASHBOARD',
-    repoUrl: 'https://github.com/UzairAtiq/web-dev-projects/tree/main/Anime-List-Tracker',
+    image: '/project ss/Screenshot 2026-10-14 at 6.58.14\u202fPM.png',
+    repoUrl: 'https://github.com/UzairAtiq/Anime-List-Tracker',
     description:
       'A retro-themed anime tracking web app that organizes watched, completed, and in-progress titles with fluid Framer Motion animations. Features real-time cloud data synchronization powered by Supabase alongside an offline-first local fallback so the watchlist never loses state.',
     tags: [
